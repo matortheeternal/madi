@@ -1,0 +1,76 @@
+users
+username:string, :limit => 32
+role:string, :limit => 16, :default => :user
+first_seen:datetime, :default => now
+last_seen:datetime, :default => now
+times_seen:integer
+download:integer, :limit => 8
+upload:integer, :limit => 8
+
+blacklist_entries
+ip:string, :limit => 32
+username:string, :limit => 32
+created:datetime
+expires:datetime
+
+merge_plugins_statistics
+user_id:integer
+times_run:integer
+merges_built:integer
+plugins_checked:integer
+plugins_fixed:integer
+plugins_merged:integer
+reports_submitted:integer
+created_at:timestamp
+updated_at:timestamp
+
+mator_smash_statistics
+user_id:integer
+times_run:integer
+patches_built:integer
+settings_created:integer
+plugins_smashed:integer
+reports_submitted:integer
+settings_submitted:integer
+created_at:timestamp
+updated_at:timestamp
+
+smash_settings
+submitted_by:string, :limit => 32
+game:string, :limit => 32
+name:string, :limit => 64
+hash:string, :limit => 8
+color:integer
+records:string, :limit => 512
+description:string, :limit => 1024
+tree:text
+created_at:timestamp
+updated_at:timestamp
+
+merge_reports
+submitted_by:string, :limit => 32
+approved:boolean
+game:string, :limit => 32
+filename:string, :limit => 64
+hash:string, :limit => 16
+record_count:integer
+rating:integer, :limit => 1
+merge_version:string, :limit => 16
+notes:string, :limit => 255
+approved_at:timestamp
+created_at:timestamp
+updated_at:timestamp
+
+smash_reports
+submitted_by:string, :limit => 32
+approved:boolean
+smash_setting_id:integer
+game:string, :limit => 32
+filename:string, :limit => 64
+hash:string, :limit => 16
+record_count:integer
+smash_version:string, :limit => 16
+notes:string, :limit => 255
+approved_at:timestamp
+created_at:timestamp
+updated_at:timestamp

@@ -98,7 +98,7 @@ if bSeedSettings
           submitted_by: user.username,
           game: 'Skyrim',
           name: Faker::Lorem.words(2),
-          setting_hash: Faker::Number.hexadecimal(16),
+          setting_hash: Faker::Number.hexadecimal(8),
           color: Faker::Number.between(0, 0x00FFFFFF),
           records: Faker::Lorem.words(randpow(10, 2)),
           description: Faker::Lorem.paragraph(3)
@@ -124,7 +124,7 @@ if bSeedReports
           submitted_by: user.username,
           smash_setting_id: setting.id,
           game: 'Skyrim',
-          filename: Faker::Lorem.words(3) + '.esp',
+          filename: Faker::Lorem.words(3).join(" ") + '.esp',
           file_hash: Faker::Number.hexadecimal(16),
           record_count: Faker::Number.between(0, 1000),
           smash_version: '0.3.1',
@@ -138,7 +138,7 @@ if bSeedReports
       MergeReport.create(
           submitted_by: user.username,
           game: 'Skyrim',
-          filename: Faker::Lorem.words(3) + '.esp',
+          filename: Faker::Lorem.words(3).join(" ") + '.esp',
           file_hash: Faker::Number.hexadecimal(16),
           record_count: Faker::Number.between(0, 1000),
           rating: Faker::Number.between(0, 4),

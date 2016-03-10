@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310212802) do
+ActiveRecord::Schema.define(version: 20160310213717) do
 
   create_table "blacklist_entries", force: :cascade do |t|
     t.string   "ip",       limit: 32, null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160310212802) do
     t.boolean  "approved",                  default: false
     t.string   "game",          limit: 32,                  null: false
     t.string   "filename",      limit: 64,                  null: false
-    t.string   "hash",          limit: 16,                  null: false
+    t.string   "file_hash",     limit: 16,                  null: false
     t.integer  "record_count",  limit: 4,                   null: false
     t.integer  "rating",        limit: 1,                   null: false
     t.string   "merge_version", limit: 16,                  null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20160310212802) do
     t.integer  "smash_setting_id", limit: 4,                   null: false
     t.string   "game",             limit: 32,                  null: false
     t.string   "filename",         limit: 64,                  null: false
-    t.string   "hash",             limit: 16,                  null: false
+    t.string   "file_hash",        limit: 16,                  null: false
     t.integer  "record_count",     limit: 4,                   null: false
     t.string   "smash_version",    limit: 16,                  null: false
     t.string   "notes",            limit: 255
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20160310212802) do
     t.boolean  "approved",                   default: false
     t.string   "game",         limit: 32,                    null: false
     t.string   "name",         limit: 64,                    null: false
-    t.string   "hash",         limit: 8,                     null: false
+    t.string   "setting_hash", limit: 8,                     null: false
     t.integer  "color",        limit: 4,                     null: false
     t.string   "records",      limit: 512
     t.string   "description",  limit: 1024

@@ -5,6 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   attr_accessor :login
+
+  has_one :mator_smash_statistic, :inverse_of => 'user'
+  has_one :merge_plugins_statistic, :inverse_of => 'user'
+  has_many :merge_reports, :foreign_key => 'submitted_by', :primary_key => 'username', :inverse_of => 'user'
+  has_many :smash_reports, :foreign_key => 'submitted_by', :primary_key => 'username', :inverse_of => 'user'
+  has_many :smash_settings, :foreign_key => 'submitted_by', :primary_key => 'username', :inverse_of => 'user'
+
   
   validates :username,
   :presence => true,

@@ -15,7 +15,7 @@
           <th>record_count</th>
           <th>smash_version</th>
           <th>notes</th>
-          <th>approveD_at</th>
+          <th>approved_at</th>
           <th colspan="3"></th>
       </tr>
     </thead>
@@ -32,7 +32,7 @@
             <td><%= smash_report.record_count %></td>
             <td><%= smash_report.smash_version %></td>
             <td><%= smash_report.notes %></td>
-            <td><%= smash_report.approveD_at %></td>
+            <td><%= smash_report.approved_at %></td>
             <td><%= link_to 'Show', smash_report %></td>
           <td><%= link_to 'Edit', edit_smash_report_path(smash_report) %></td>
           <td><%= link_to 'Destroy', smash_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>

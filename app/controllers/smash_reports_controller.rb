@@ -53,6 +53,6 @@ class SmashReportsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def smash_report_params
-      params.require(:smash_report).permit(:submitted_by, :approved, :smash_setting_id, :game, :filename, :hash, :record_count, :smash_version, :notes, :approveD_at)
+      params.require(:smash_report).permit(:submitted_by, :approved, :smash_setting_id, :game, :filename, :hash, :record_count, :smash_version, :notes, :approved_at)
     end
 end

@@ -18,4 +18,4 @@ call rails g scaffold smash_settings submitted_by:string game:string name:string
 
 call rails g scaffold merge_reports submitted_by:string approved:boolean game:string filename:string hash:string record_count:integer rating:integer merge_version:string notes:string approved_at:timestamp
 
-call rails g scaffold smash_reports submitted_by:string approved:boolean smash_setting_id:integer game:string filename:string hash:string record_count:integer smash_version:string notes:string approveD_at:timestamp
+call rails g scaffold smash_reports submitted_by:string approved:boolean smash_setting_id:integer game:string filename:string hash:string record_count:integer smash_version:string notes:string approved_at:timestamp

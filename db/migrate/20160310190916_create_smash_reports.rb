@@ -10,7 +10,7 @@ class CreateSmashReports < ActiveRecord::Migration
       t.integer :record_count
       t.string :smash_version
       t.string :notes
-      t.timestamp :approveD_at
+      t.timestamp :approved_at
 
       t.timestamps null: false
     end

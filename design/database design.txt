@@ -47,7 +47,7 @@ updated_at:timestamp
 
 merge_reports
 submitted_by:string, :limit => 32, :null => false
-approved:boolean
+approved:boolean, :default => false
 game:string, :limit => 32, :null => false
 filename:string, :limit => 64, :null => false
 hash:string, :limit => 16, :null => false
@@ -61,7 +61,7 @@ updated_at:timestamp
 
 smash_reports
 submitted_by:string, :limit => 32, :null => false
-approved:boolean
+approved:boolean, :default => false
 smash_setting_id:integer, :null => false
 game:string, :limit => 32, :null => false
 filename:string, :limit => 64, :null => false

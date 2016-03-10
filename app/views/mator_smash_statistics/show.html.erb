@@ -1,0 +1,41 @@
+<div class="scaffold">
+  <p id="notice"><%= notice %></p>
+
+    <p>
+    <strong>user_id:</strong>
+    <%= @mator_smash_statistic.user_id %>
+  </p>
+
+    <p>
+    <strong>times_run:</strong>
+    <%= @mator_smash_statistic.times_run %>
+  </p>
+
+    <p>
+    <strong>patches_build:</strong>
+    <%= @mator_smash_statistic.patches_build %>
+  </p>
+
+    <p>
+    <strong>settings_created:</strong>
+    <%= @mator_smash_statistic.settings_created %>
+  </p>
+
+    <p>
+    <strong>plugins_smashed:</strong>
+    <%= @mator_smash_statistic.plugins_smashed %>
+  </p>
+
+    <p>
+    <strong>reports_submitted:</strong>
+    <%= @mator_smash_statistic.reports_submitted %>
+  </p>
+
+    <p>
+    <strong>settings_submitted:</strong>
+    <%= @mator_smash_statistic.settings_submitted %>
+  </p>
+
+    <%= link_to 'Edit', edit_mator_smash_statistic_path(@mator_smash_statistic) %> |
+  <%= link_to 'Back', mator_smash_statistics_path %>
+</div>

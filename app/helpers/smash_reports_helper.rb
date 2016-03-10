@@ -1,0 +1,2 @@
+module SmashReportsHelper
+end

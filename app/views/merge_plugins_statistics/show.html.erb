@@ -1,0 +1,41 @@
+<div class="scaffold">
+  <p id="notice"><%= notice %></p>
+
+    <p>
+    <strong>user_id:</strong>
+    <%= @merge_plugins_statistic.user_id %>
+  </p>
+
+    <p>
+    <strong>times_run:</strong>
+    <%= @merge_plugins_statistic.times_run %>
+  </p>
+
+    <p>
+    <strong>merges_built:</strong>
+    <%= @merge_plugins_statistic.merges_built %>
+  </p>
+
+    <p>
+    <strong>plugins_checked:</strong>
+    <%= @merge_plugins_statistic.plugins_checked %>
+  </p>
+
+    <p>
+    <strong>plugins_fixed:</strong>
+    <%= @merge_plugins_statistic.plugins_fixed %>
+  </p>
+
+    <p>
+    <strong>plugins_merged:</strong>
+    <%= @merge_plugins_statistic.plugins_merged %>
+  </p>
+
+    <p>
+    <strong>reports_submitted:</strong>
+    <%= @merge_plugins_statistic.reports_submitted %>
+  </p>
+
+    <%= link_to 'Edit', edit_merge_plugins_statistic_path(@merge_plugins_statistic) %> |
+  <%= link_to 'Back', merge_plugins_statistics_path %>
+</div>

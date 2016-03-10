@@ -1,0 +1,35 @@
+<div class="scaffold">
+  <p id="notice"><%= notice %></p>
+
+  <h1>blacklist_entries</h1>
+
+  <table>
+    <thead>
+      <tr>
+          <th>ip</th>
+          <th>username</th>
+          <th>created</th>
+          <th>expires</th>
+          <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @blacklist_entries.each do |blacklist_entry| %>
+        <tr>
+            <td><%= blacklist_entry.ip %></td>
+            <td><%= blacklist_entry.username %></td>
+            <td><%= blacklist_entry.created %></td>
+            <td><%= blacklist_entry.expires %></td>
+            <td><%= link_to 'Show', blacklist_entry %></td>
+          <td><%= link_to 'Edit', edit_blacklist_entry_path(blacklist_entry) %></td>
+          <td><%= link_to 'Destroy', blacklist_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Blacklist Entry', new_blacklist_entry_path %>
+</div>

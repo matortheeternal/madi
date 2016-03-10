@@ -1,0 +1,49 @@
+<%= form_for(@smash_setting) do |f| %>
+  <% if @smash_setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@smash_setting.errors.count, "error") %> prohibited this smash_setting from being saved:</h2>
+
+      <ul>
+      <% @smash_setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :submitted_by %><br>
+    <%= f.text_field :submitted_by %>
+  </div>
+  <div class="field">
+    <%= f.label :game %><br>
+    <%= f.text_field :game %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :hash %><br>
+    <%= f.text_field :hash %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.number_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :records %><br>
+    <%= f.text_field :records %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :tree %><br>
+    <%= f.text_area :tree %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

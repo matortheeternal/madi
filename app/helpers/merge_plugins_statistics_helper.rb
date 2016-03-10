@@ -1,0 +1,2 @@
+module MergePluginsStatisticsHelper
+end

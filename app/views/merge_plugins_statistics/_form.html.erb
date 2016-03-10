@@ -1,0 +1,45 @@
+<%= form_for(@merge_plugins_statistic) do |f| %>
+  <% if @merge_plugins_statistic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@merge_plugins_statistic.errors.count, "error") %> prohibited this merge_plugins_statistic from being saved:</h2>
+
+      <ul>
+      <% @merge_plugins_statistic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :times_run %><br>
+    <%= f.number_field :times_run %>
+  </div>
+  <div class="field">
+    <%= f.label :merges_built %><br>
+    <%= f.number_field :merges_built %>
+  </div>
+  <div class="field">
+    <%= f.label :plugins_checked %><br>
+    <%= f.number_field :plugins_checked %>
+  </div>
+  <div class="field">
+    <%= f.label :plugins_fixed %><br>
+    <%= f.number_field :plugins_fixed %>
+  </div>
+  <div class="field">
+    <%= f.label :plugins_merged %><br>
+    <%= f.number_field :plugins_merged %>
+  </div>
+  <div class="field">
+    <%= f.label :reports_submitted %><br>
+    <%= f.number_field :reports_submitted %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,47 @@
+<div class="scaffold">
+  <p id="notice"><%= notice %></p>
+
+  <h1>smash_reports</h1>
+
+  <table>
+    <thead>
+      <tr>
+          <th>submitted_by</th>
+          <th>approved</th>
+          <th>smash_setting_id</th>
+          <th>game</th>
+          <th>filename</th>
+          <th>hash</th>
+          <th>record_count</th>
+          <th>smash_version</th>
+          <th>notes</th>
+          <th>approveD_at</th>
+          <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @smash_reports.each do |smash_report| %>
+        <tr>
+            <td><%= smash_report.submitted_by %></td>
+            <td><%= smash_report.approved %></td>
+            <td><%= smash_report.smash_setting_id %></td>
+            <td><%= smash_report.game %></td>
+            <td><%= smash_report.filename %></td>
+            <td><%= smash_report.hash %></td>
+            <td><%= smash_report.record_count %></td>
+            <td><%= smash_report.smash_version %></td>
+            <td><%= smash_report.notes %></td>
+            <td><%= smash_report.approveD_at %></td>
+            <td><%= link_to 'Show', smash_report %></td>
+          <td><%= link_to 'Edit', edit_smash_report_path(smash_report) %></td>
+          <td><%= link_to 'Destroy', smash_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Smash Report', new_smash_report_path %>
+</div>

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :smash_reports
+  resources :merge_reports
+  resources :smash_settings
+  resources :mator_smash_statistics
+  resources :merge_plugins_statistics
+  resources :blacklist_entries
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

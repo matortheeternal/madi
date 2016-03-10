@@ -1,0 +1,41 @@
+<div class="scaffold">
+  <p id="notice"><%= notice %></p>
+
+  <h1>mator_smash_statistics</h1>
+
+  <table>
+    <thead>
+      <tr>
+          <th>user_id</th>
+          <th>times_run</th>
+          <th>patches_build</th>
+          <th>settings_created</th>
+          <th>plugins_smashed</th>
+          <th>reports_submitted</th>
+          <th>settings_submitted</th>
+          <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @mator_smash_statistics.each do |mator_smash_statistic| %>
+        <tr>
+            <td><%= mator_smash_statistic.user_id %></td>
+            <td><%= mator_smash_statistic.times_run %></td>
+            <td><%= mator_smash_statistic.patches_build %></td>
+            <td><%= mator_smash_statistic.settings_created %></td>
+            <td><%= mator_smash_statistic.plugins_smashed %></td>
+            <td><%= mator_smash_statistic.reports_submitted %></td>
+            <td><%= mator_smash_statistic.settings_submitted %></td>
+            <td><%= link_to 'Show', mator_smash_statistic %></td>
+          <td><%= link_to 'Edit', edit_mator_smash_statistic_path(mator_smash_statistic) %></td>
+          <td><%= link_to 'Destroy', mator_smash_statistic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Mator Smash Statistic', new_mator_smash_statistic_path %>
+</div>

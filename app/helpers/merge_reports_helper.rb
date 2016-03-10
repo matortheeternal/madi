@@ -1,0 +1,2 @@
+module MergeReportsHelper
+end

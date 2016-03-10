@@ -1,0 +1,2 @@
+module SmashSettingsHelper
+end

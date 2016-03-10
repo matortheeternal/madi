@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310210414) do
+ActiveRecord::Schema.define(version: 20160310212802) do
 
   create_table "blacklist_entries", force: :cascade do |t|
     t.string   "ip",       limit: 32, null: false

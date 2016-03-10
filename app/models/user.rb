@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   
   validate :validate_username
 
+  def admin?
+    self.role.to_sym == :admin
+  end
+
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)

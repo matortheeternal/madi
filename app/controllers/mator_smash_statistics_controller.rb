@@ -53,6 +53,6 @@ class MatorSmashStatisticsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def mator_smash_statistic_params
-      params.require(:mator_smash_statistic).permit(:user_id, :times_run, :patches_build, :settings_created, :plugins_smashed, :reports_submitted, :settings_submitted)
+      params.require(:mator_smash_statistic).permit(:user_id, :times_run, :patches_built, :settings_created, :plugins_smashed, :reports_submitted, :settings_submitted)
     end
 end

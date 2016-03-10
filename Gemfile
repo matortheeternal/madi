@@ -17,6 +17,9 @@ gem 'coffee-script-source', '1.8.0'
 # Use rack-attack as middleware
 gem 'rack-attack'
 
+# Use cancan for user authorization
+gem 'cancan'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

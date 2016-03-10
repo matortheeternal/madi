@@ -2,6 +2,7 @@ class CreateSmashSettings < ActiveRecord::Migration
   def change
     create_table :smash_settings do |t|
       t.string :submitted_by, :limit => 32, :null => false
+      t.boolean :approved, :default => false
       t.string :game, :limit => 32, :null => false
       t.string :name, :limit => 64, :null => false
       t.string :hash, :limit => 8, :null => false

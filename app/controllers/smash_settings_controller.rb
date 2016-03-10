@@ -53,6 +53,6 @@ class SmashSettingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def smash_setting_params
-      params.require(:smash_setting).permit(:submitted_by, :game, :name, :hash, :color, :records, :description, :tree)
+      params.require(:smash_setting).permit(:submitted_by, :approved, :game, :name, :hash, :color, :records, :description, :tree)
     end
 end

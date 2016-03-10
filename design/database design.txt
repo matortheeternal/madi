@@ -1,8 +1,6 @@
 users
 username:string, :limit => 32
 role:string, :limit => 16, :default => :user
-first_seen:datetime, :default => now
-last_seen:datetime, :default => now
 times_seen:integer
 download:integer, :limit => 8
 upload:integer, :limit => 8

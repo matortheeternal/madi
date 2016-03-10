@@ -22,5 +22,8 @@ module Mati
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # use rack-attack for middleware
+    config.middleware.use Rack::Attack
   end
 end

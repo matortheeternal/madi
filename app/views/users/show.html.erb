@@ -11,21 +11,6 @@
     <%= @user.role %>
   </p>
 
-    <p>
-    <strong>times_seen:</strong>
-    <%= @user.times_seen %>
-  </p>
-
-    <p>
-    <strong>download:</strong>
-    <%= @user.download %>
-  </p>
-
-    <p>
-    <strong>upload:</strong>
-    <%= @user.upload %>
-  </p>
-
     <%= link_to 'Edit', edit_user_path(@user) %> |
   <%= link_to 'Back', users_path %>
 </div>

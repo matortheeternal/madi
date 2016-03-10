@@ -1,9 +1,6 @@
 users
 username:string, :limit => 32, :null => false
 role:string, :limit => 16, :default => :user
-times_seen:integer, :default => 1
-download:integer, :limit => 8
-upload:integer, :limit => 8
 
 blacklist_entries
 ip:string, :limit => 32, :null => false

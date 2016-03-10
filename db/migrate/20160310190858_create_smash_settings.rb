@@ -1,13 +1,13 @@
 class CreateSmashSettings < ActiveRecord::Migration
   def change
     create_table :smash_settings do |t|
-      t.string :submitted_by
-      t.string :game
-      t.string :name
-      t.string :hash
-      t.integer :color
-      t.string :records
-      t.string :description
+      t.string :submitted_by, :limit => 32, :null => false
+      t.string :game, :limit => 32, :null => false
+      t.string :name, :limit => 64, :null => false
+      t.string :hash, :limit => 8, :null => false
+      t.integer :color, :null => false
+      t.string :records, :limit => 512
+      t.string :description, :limit => 1024
       t.text :tree
 
       t.timestamps null: false

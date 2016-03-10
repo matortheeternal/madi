@@ -1,0 +1,78 @@
+source 'https://rubygems.org'
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.5'
+# Using mysql database for active record
+gem 'mysql2', '~> 0.3.20'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-script-source', '1.8.0'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0', group: :doc
+
+# use nokogiri for parsing html
+gem 'nokogiri'
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use will_paginate for pagination
+gem 'will_paginate'
+
+# For contact forms
+gem 'mail_form'
+gem 'simple_form'
+
+
+# Use Unicorn as the app server
+# gem 'unicorn'
+
+# using devise for authentication
+gem 'devise'
+
+# use mailcatcher for development
+gem 'mailcatcher'
+
+# gems to enhance integration with mysql
+gem 'native_enum'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
+  # rspec testing framework
+  gem 'rspec-rails'
+
+  # Use Faker for generating fake data
+  gem 'faker'
+
+  # Factory girl for testing
+  gem 'factory_girl_rails', '~> 4.0'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

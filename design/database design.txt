@@ -12,7 +12,7 @@ created:datetime
 expires:datetime
 
 merge_plugins_statistics
-user_id:integer
+user_id:integer, :null => false
 times_run:integer
 merges_built:integer
 plugins_checked:integer

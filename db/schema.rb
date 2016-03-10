@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310213717) do
+ActiveRecord::Schema.define(version: 20160310221037) do
 
   create_table "blacklist_entries", force: :cascade do |t|
     t.string   "ip",       limit: 32, null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160310213717) do
   create_table "mator_smash_statistics", force: :cascade do |t|
     t.integer  "user_id",            limit: 4, null: false
     t.integer  "times_run",          limit: 4
-    t.integer  "patches_build",      limit: 4
+    t.integer  "patches_built",      limit: 4
     t.integer  "settings_created",   limit: 4
     t.integer  "plugins_smashed",    limit: 4
     t.integer  "reports_submitted",  limit: 4

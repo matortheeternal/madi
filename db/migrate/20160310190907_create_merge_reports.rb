@@ -14,5 +14,11 @@ class CreateMergeReports < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    
+    reversible do |dir|
+      dir.up do
+        execute('ALTER TABLE merge_reports MODIFY id INT UNSIGNED NOT NULL')
+      end
+    end
   end
 end

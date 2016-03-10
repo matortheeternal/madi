@@ -14,5 +14,12 @@ class CreateSmashReports < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    
+    reversible do |dir|
+      dir.up do
+        execute('ALTER TABLE smash_reports MODIFY id INT UNSIGNED NOT NULL')
+        execute('ALTER TABLE smash_reports MODIFY smash_setting_id INT UNSIGNED NOT NULL')
+      end
+    end
   end
 end

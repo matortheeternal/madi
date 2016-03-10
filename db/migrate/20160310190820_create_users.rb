@@ -9,5 +9,13 @@ class CreateUsers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    
+    reversible do |dir|
+      dir.up do
+        execute('ALTER TABLE users MODIFY id INT UNSIGNED NOT NULL')
+      end
+    end
+    
+    add_index :users, :username, :unique => true
   end
 end

@@ -14,8 +14,11 @@ class CreateMergePluginsStatistics < ActiveRecord::Migration
     
     reversible do |dir|
       dir.up do
+        execute('ALTER TABLE merge_plugins_statistics MODIFY id INT UNSIGNED NOT NULL')
         execute('ALTER TABLE merge_plugins_statistics MODIFY user_id INT UNSIGNED NOT NULL')
       end
     end
+    
+    add_foreign_key :merge_plugins_statistics, :users, column: :user_id
   end
 end

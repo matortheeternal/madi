@@ -1,12 +1,12 @@
 users
-username:string, :limit => 32
+username:string, :limit => 32, :null => false
 role:string, :limit => 16, :default => :user
-times_seen:integer
+times_seen:integer, :default => 1
 download:integer, :limit => 8
 upload:integer, :limit => 8
 
 blacklist_entries
-ip:string, :limit => 32
+ip:string, :limit => 32, :null => false
 username:string, :limit => 32
 created:datetime
 expires:datetime
@@ -38,7 +38,7 @@ submitted_by:string, :limit => 32, :null => false
 game:string, :limit => 32, :null => false
 name:string, :limit => 64, :null => false
 hash:string, :limit => 8, :null => false
-color:integer
+color:integer, :null => false
 records:string, :limit => 512
 description:string, :limit => 1024
 tree:text

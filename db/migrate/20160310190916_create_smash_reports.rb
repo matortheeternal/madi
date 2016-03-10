@@ -1,15 +1,15 @@
 class CreateSmashReports < ActiveRecord::Migration
   def change
     create_table :smash_reports do |t|
-      t.string :submitted_by
-      t.boolean :approved
-      t.integer :smash_setting_id
-      t.string :game
-      t.string :filename
-      t.string :hash
-      t.integer :record_count
-      t.string :smash_version
-      t.string :notes
+      t.string :submitted_by, :limit => 32, :null => false
+      t.boolean :approved, :default => false
+      t.integer :smash_setting_id, :null => false
+      t.string :game, :limit => 32, :null => false
+      t.string :filename, :limit => 64, :null => false
+      t.string :hash, :limit => 16, :null => false
+      t.integer :record_count, :null => false
+      t.string :smash_version, :limit => 16, :null => false
+      t.string :notes, :limit => 255
       t.timestamp :approved_at
 
       t.timestamps null: false

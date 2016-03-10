@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :smash_reports
   resources :merge_reports
   resources :smash_settings

@@ -60,6 +60,6 @@ class SmashSettingsController < ApplicationController
     end
 
     def filtering_params
-      params[:filters].slice(:approved, :game, :search, :records, :created, :updated)
+      (params[:filters] || {}).slice(:approved, :game, :search, :records, :created, :updated)
     end
 end

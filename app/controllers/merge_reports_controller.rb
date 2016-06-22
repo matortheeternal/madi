@@ -51,6 +51,6 @@ class MergeReportsController < ApplicationController
     end
 
     def filtering_params
-      params[:filters].slice(:approved, :game, :search, :record_count, :rating, :version, :created, :updated)
+      (params[:filters] || {}).slice(:approved, :game, :search, :record_count, :rating, :version, :created, :updated)
     end
 end

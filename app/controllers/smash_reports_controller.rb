@@ -51,6 +51,6 @@ class SmashReportsController < ApplicationController
     end
 
     def filtering_params
-      params[:filters].slice(:approved, :game, :search, :record_count, :version, :created, :updated)
+      (params[:filters] || {}).slice(:approved, :game, :search, :record_count, :version, :created, :updated)
     end
 end

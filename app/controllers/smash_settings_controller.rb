@@ -8,7 +8,7 @@ class SmashSettingsController < ApplicationController
       format.html
       format.json {
         render :json => @smash_settings.as_json({
-          :only => [:name, :setting_hash, :description, :created_at, :updated_at],
+          :only => [:approved, :name, :setting_hash, :description, :created_at, :updated_at],
           :include => {
               :user => {
                   :only => [:username]

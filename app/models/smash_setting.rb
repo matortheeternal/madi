@@ -12,6 +12,7 @@ class SmashSetting < ActiveRecord::Base
 
 
   belongs_to :user, :inverse_of => 'smash_settings'
+  has_many :smash_reports, :inverse_of => 'smash_setting'
 
   def as_json(options={})
     if JsonHelpers.json_options_empty(options)

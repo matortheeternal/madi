@@ -1,5 +1,4 @@
 class MatorSmashStatisticsController < ApplicationController
-  before_action :set_mator_smash_statistic, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /mator_smash_statistics
@@ -38,11 +37,6 @@ class MatorSmashStatisticsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_mator_smash_statistic
-      @mator_smash_statistic = MatorSmashStatistic.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def mator_smash_statistic_params
       params.require(:mator_smash_statistic).permit(:user_id, :times_run, :patches_built, :settings_created, :plugins_smashed, :reports_submitted, :settings_submitted)

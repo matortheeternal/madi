@@ -1,5 +1,4 @@
 class SmashSettingsController < ApplicationController
-  before_action :set_smash_setting, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /smash_settings
@@ -38,11 +37,6 @@ class SmashSettingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_smash_setting
-      @smash_setting = SmashSetting.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def smash_setting_params
       params.require(:smash_setting).permit(:submitted_by, :approved, :game, :name, :hash, :color, :records, :description, :tree)

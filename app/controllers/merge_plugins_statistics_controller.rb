@@ -1,5 +1,4 @@
 class MergePluginsStatisticsController < ApplicationController
-  before_action :set_merge_plugins_statistic, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /merge_plugins_statistics
@@ -38,11 +37,6 @@ class MergePluginsStatisticsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_merge_plugins_statistic
-      @merge_plugins_statistic = MergePluginsStatistic.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def merge_plugins_statistic_params
       params.require(:merge_plugins_statistic).permit(:user_id, :times_run, :merges_built, :plugins_checked, :plugins_fixed, :plugins_merged, :reports_submitted)

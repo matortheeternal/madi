@@ -1,5 +1,4 @@
 class MergeReportsController < ApplicationController
-  before_action :set_merge_report, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /merge_reports
@@ -38,11 +37,6 @@ class MergeReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_merge_report
-      @merge_report = MergeReport.find(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def merge_report_params
       params.require(:merge_report).permit(:submitted_by, :approved, :game, :filename, :hash, :record_count, :rating, :merge_version, :notes, :approved_at)

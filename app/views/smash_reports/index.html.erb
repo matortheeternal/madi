@@ -6,7 +6,7 @@
   <table>
     <thead>
       <tr>
-          <th>submitted_by</th>
+          <th>user_id</th>
           <th>approved</th>
           <th>smash_setting_id</th>
           <th>game</th>
@@ -23,7 +23,7 @@
     <tbody>
       <% @smash_reports.each do |smash_report| %>
         <tr>
-            <td><%= smash_report.submitted_by %></td>
+            <td><%= smash_report.user_id %></td>
             <td><%= smash_report.approved %></td>
             <td><%= smash_report.smash_setting_id %></td>
             <td><%= smash_report.game %></td>

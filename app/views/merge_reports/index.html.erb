@@ -6,7 +6,7 @@
   <table>
     <thead>
       <tr>
-          <th>submitted_by</th>
+          <th>user_id</th>
           <th>approved</th>
           <th>game</th>
           <th>filename</th>
@@ -23,7 +23,7 @@
     <tbody>
       <% @merge_reports.each do |merge_report| %>
         <tr>
-            <td><%= merge_report.submitted_by %></td>
+            <td><%= merge_report.user_id %></td>
             <td><%= merge_report.approved %></td>
             <td><%= merge_report.game %></td>
             <td><%= merge_report.filename %></td>

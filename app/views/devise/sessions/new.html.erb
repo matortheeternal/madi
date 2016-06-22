@@ -1,15 +1,35 @@
-<h2>Log in</h2>
+<div class="box-heading">
+  Sign in to MADI
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="box-content">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="padded-field">
+        <p><%= f.label :username %><br />
+          <%= f.text_field :login, tabindex: 1 %></p>
+      </div>
+
+      <div class="padded-field">
+        <%= f.label :password %> <span class="right-span" tabindex=3><%= link_to "Don't remember?", new_password_path(resource_name) %></span>
+        <%= f.password_field :password, autocomplete: "off", tabindex: 2  %>
+      </div>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <% if devise_mapping.rememberable? -%>
+          <div class="padded-field text-center">
+            <%= f.check_box :remember_me, tabindex: 4 %>
+            <%= f.label :remember_me %>
+          </div>
+      <% end -%>
+
+      <div class="padded-field text-center big-margin">
+        <%= f.submit "Log in", tabindex: 5 %>
+      </div>
+  <% end %>
+
+  <div class="padded-field text-center big-margin">
+    New here?  <%= link_to 'Register', new_registration_path(resource_name), tabindex: 6 %> an account!
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

@@ -5,7 +5,16 @@ class SmashSettingsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render :json => @smash_settings}
+      format.json {
+        render :json => @smash_settings.as_json({
+          :only => [:name, :setting_hash, :description, :created_at, :updated_at],
+          :include => {
+              :user => {
+                  :only => [:username]
+              }
+          }
+        })
+      }
     end
   end
 

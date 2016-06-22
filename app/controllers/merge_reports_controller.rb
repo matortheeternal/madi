@@ -5,7 +5,11 @@ class MergeReportsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render :json => @merge_reports}
+      format.json {
+        render :json => @merge_reports.as_json({
+            :only => [:approved, :filename, :file_hash, :record_count, :rating, :merge_version, :created_at, :updated_at]
+        })
+      }
     end
   end
 

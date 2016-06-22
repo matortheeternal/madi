@@ -3,10 +3,18 @@ class MergeReportsController < ApplicationController
 
   # GET /merge_reports
   def index
+    respond_to do |format|
+      format.html
+      format.json { render :json => @merge_reports}
+    end
   end
 
   # GET /merge_reports/1
   def show
+    respond_to do |format|
+      format.html
+      format.json { render :json => @merge_report}
+    end
   end
 
   # POST /merge_reports

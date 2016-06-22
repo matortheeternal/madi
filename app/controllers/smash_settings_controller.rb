@@ -3,10 +3,18 @@ class SmashSettingsController < ApplicationController
 
   # GET /smash_settings
   def index
+    respond_to do |format|
+      format.html
+      format.json { render :json => @smash_settings}
+    end
   end
 
   # GET /smash_settings/1
   def show
+    respond_to do |format|
+      format.html
+      format.json { render :json => @smash_setting}
+    end
   end
 
   # POST /smash_settings

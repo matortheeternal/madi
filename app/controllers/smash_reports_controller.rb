@@ -3,10 +3,18 @@ class SmashReportsController < ApplicationController
 
   # GET /smash_reports
   def index
+    respond_to do |format|
+      format.html
+      format.json { render :json => @smash_reports}
+    end
   end
 
   # GET /smash_reports/1
   def show
+    respond_to do |format|
+      format.html
+      format.json { render :json => @smash_report}
+    end
   end
 
   # POST /smash_reports

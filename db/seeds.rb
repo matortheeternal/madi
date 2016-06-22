@@ -128,7 +128,7 @@ if bSeedReports
           file_hash: Faker::Number.hexadecimal(16),
           record_count: Faker::Number.between(0, 1000),
           smash_version: '0.3.1',
-          notes: Faker::Lorem.paragraph(3)
+          notes: Faker::Lorem.paragraph(2)
       ).save!
     end
 
@@ -143,7 +143,7 @@ if bSeedReports
           record_count: Faker::Number.between(0, 1000),
           rating: Faker::Number.between(0, 4),
           merge_version: '2.3.1',
-          notes: Faker::Lorem.paragraph(3)
+          notes: Faker::Lorem.paragraph(2)
       ).save!
     end
   end

@@ -97,10 +97,10 @@ if bSeedSettings
       SmashSetting.create(
           submitted_by: user.username,
           game: 'Skyrim',
-          name: Faker::Lorem.words(2),
+          name: Faker::Lorem.words(2).join(" "),
           setting_hash: Faker::Number.hexadecimal(8),
           color: Faker::Number.between(0, 0x00FFFFFF),
-          records: Faker::Lorem.words(randpow(10, 2)),
+          records: Faker::Lorem.words(randpow(10, 2)).join(" "),
           description: Faker::Lorem.paragraph(3)
       ).save!
     end

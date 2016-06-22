@@ -95,7 +95,7 @@ if bSeedSettings
     puts "    Generating #{rnd} smash settings from #{user.username}"
     rnd.times do
       SmashSetting.create(
-          submitted_by: user.username,
+          user_id: user.id,
           game: 'Skyrim',
           name: Faker::Lorem.words(2).join(" "),
           setting_hash: Faker::Number.hexadecimal(8),
@@ -121,7 +121,7 @@ if bSeedReports
     rnd.times do
       setting = SmashSetting.offset(rand(SmashSetting.count)).first
       SmashReport.create(
-          submitted_by: user.username,
+          user_id: user.id,
           smash_setting_id: setting.id,
           game: 'Skyrim',
           filename: Faker::Lorem.words(3).join(" ") + '.esp',
@@ -136,7 +136,7 @@ if bSeedReports
     puts "    Generating #{rnd} merge reports from #{user.username}"
     rnd.times do
       MergeReport.create(
-          submitted_by: user.username,
+          user_id: user.id,
           game: 'Skyrim',
           filename: Faker::Lorem.words(3).join(" ") + '.esp',
           file_hash: Faker::Number.hexadecimal(16),

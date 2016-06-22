@@ -3,7 +3,6 @@ class MergePluginsStatisticsController < ApplicationController
 
   # GET /merge_plugins_statistics
   def index
-    @merge_plugins_statistics = MergePluginsStatistic.all
   end
 
   # GET /merge_plugins_statistics/1

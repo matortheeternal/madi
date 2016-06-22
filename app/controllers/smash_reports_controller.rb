@@ -3,7 +3,6 @@ class SmashReportsController < ApplicationController
 
   # GET /smash_reports
   def index
-    @smash_reports = SmashReport.all
   end
 
   # GET /smash_reports/1

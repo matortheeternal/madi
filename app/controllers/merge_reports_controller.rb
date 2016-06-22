@@ -3,7 +3,6 @@ class MergeReportsController < ApplicationController
 
   # GET /merge_reports
   def index
-    @merge_reports = MergeReport.all
   end
 
   # GET /merge_reports/1

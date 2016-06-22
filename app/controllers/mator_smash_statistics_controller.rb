@@ -3,7 +3,6 @@ class MatorSmashStatisticsController < ApplicationController
 
   # GET /mator_smash_statistics
   def index
-    @mator_smash_statistics = MatorSmashStatistic.all
   end
 
   # GET /mator_smash_statistics/1

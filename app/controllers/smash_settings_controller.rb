@@ -3,7 +3,6 @@ class SmashSettingsController < ApplicationController
 
   # GET /smash_settings
   def index
-    @smash_settings = SmashSetting.all
   end
 
   # GET /smash_settings/1

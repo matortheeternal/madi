@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622201940) do
+ActiveRecord::Schema.define(version: 20160622202304) do
 
   create_table "blacklist_entries", force: :cascade do |t|
     t.string   "ip",       limit: 32, null: false
@@ -23,29 +23,29 @@ ActiveRecord::Schema.define(version: 20160622201940) do
   add_index "blacklist_entries", ["ip"], name: "index_blacklist_entries_on_ip", unique: true, using: :btree
 
   create_table "mator_smash_statistics", force: :cascade do |t|
-    t.integer  "user_id",            limit: 4, null: false
-    t.integer  "times_run",          limit: 4
-    t.integer  "patches_built",      limit: 4
-    t.integer  "settings_created",   limit: 4
-    t.integer  "plugins_smashed",    limit: 4
-    t.integer  "reports_submitted",  limit: 4
-    t.integer  "settings_submitted", limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "user_id",            limit: 4,             null: false
+    t.integer  "times_run",          limit: 4, default: 0
+    t.integer  "patches_built",      limit: 4, default: 0
+    t.integer  "settings_created",   limit: 4, default: 0
+    t.integer  "plugins_smashed",    limit: 4, default: 0
+    t.integer  "reports_submitted",  limit: 4, default: 0
+    t.integer  "settings_submitted", limit: 4, default: 0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "mator_smash_statistics", ["user_id"], name: "fk_rails_77299b4220", using: :btree
 
   create_table "merge_plugins_statistics", force: :cascade do |t|
-    t.integer  "user_id",           limit: 4, null: false
-    t.integer  "times_run",         limit: 4
-    t.integer  "merges_built",      limit: 4
-    t.integer  "plugins_checked",   limit: 4
-    t.integer  "plugins_fixed",     limit: 4
-    t.integer  "plugins_merged",    limit: 4
-    t.integer  "reports_submitted", limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "user_id",           limit: 4,             null: false
+    t.integer  "times_run",         limit: 4, default: 0
+    t.integer  "merges_built",      limit: 4, default: 0
+    t.integer  "plugins_checked",   limit: 4, default: 0
+    t.integer  "plugins_fixed",     limit: 4, default: 0
+    t.integer  "plugins_merged",    limit: 4, default: 0
+    t.integer  "reports_submitted", limit: 4, default: 0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "merge_plugins_statistics", ["user_id"], name: "fk_rails_6bba2276ea", using: :btree

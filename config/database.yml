@@ -9,7 +9,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mati_dev
+  database: madi_dev
   pool: 5
   username: root
   password:
@@ -22,7 +22,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mati_test
+  database: madi_test
   pool: 5
   username: root
   password:
@@ -32,7 +32,7 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: mati
+  database: madi
   pool: 5
   username: root
   password: <%= ENV["DB_PW"] %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622213550) do
+ActiveRecord::Schema.define(version: 20160622234325) do
 
   create_table "blacklist_entries", force: :cascade do |t|
     t.string   "ip",      limit: 32, null: false
@@ -125,6 +125,11 @@ ActiveRecord::Schema.define(version: 20160622213550) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "versions", force: :cascade do |t|
+    t.string "label",   limit: 32, null: false
+    t.string "version", limit: 32, null: false
+  end
 
   add_foreign_key "blacklist_entries", "users"
   add_foreign_key "mator_smash_statistics", "users"

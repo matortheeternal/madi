@@ -45,7 +45,7 @@ gem 'simple_form'
 # gem 'unicorn'
 
 # using devise for authentication
-gem 'devise'
+gem 'devise', '~> 3.5.6'
 
 # use mailcatcher for development
 gem 'mailcatcher'

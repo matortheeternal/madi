@@ -6,11 +6,7 @@ class MergeReportsController < ApplicationController
     @merge_reports = MergeReport.accessible_by(current_ability).filter(filtering_params)
     respond_to do |format|
       format.html
-      format.json {
-        render :json => @merge_reports.as_json({
-            :only => [:approved, :filename, :file_hash, :record_count, :rating, :merge_version, :created_at, :updated_at]
-        })
-      }
+      format.json { render :json => @merge_reports }
     end
   end
 

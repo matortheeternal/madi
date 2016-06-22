@@ -6,16 +6,7 @@ class SmashReportsController < ApplicationController
     @smash_reports = SmashReport.accessible_by(current_ability).filter(filtering_params)
     respond_to do |format|
       format.html
-      format.json {
-        render :json => @smash_reports.as_json({
-            :only => [:approved, :filename, :file_hash, :record_count, :smash_version, :created_at, :updated_at],
-            :include => {
-                :smash_setting => {
-                    :only => [:id, :name, :setting_hash]
-                }
-            }
-        })
-      }
+      format.json { render :json => @smash_reports }
     end
   end
 

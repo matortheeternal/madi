@@ -21,6 +21,9 @@ class SmashReport < ActiveRecord::Base
           :include => {
               :user => {
                   :only => [:username]
+              },
+              :smash_setting => {
+                  :only => [:id, :name, :setting_hash]
               }
           }
       }

@@ -23,6 +23,7 @@ class Ability
       can :read, MergeReport
       can :read, SmashReport
       can :read, SmashSetting
+      can :read, Version
     end
   end
 end

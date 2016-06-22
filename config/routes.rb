@@ -4,26 +4,23 @@ Rails.application.routes.draw do
   # User submitted content
   resources :smash_reports
   match '/smash_reports/index', to: 'smash_reports#index', via: [:post]
-
   resources :merge_reports
   match '/merge_reports/index', to: 'merge_reports#index', via: [:post]
-
-  match '/smash_settings/index', to: 'smash_settings#index', via: [:post]
   resources :smash_settings
+  match '/smash_settings/index', to: 'smash_settings#index', via: [:post]
 
   # Users and Statistics
   resources :users
   match '/users/index', to: 'users#index', via: [:post]
-
   resources :mator_smash_statistics
   match '/mator_smash_statistics/index', to: 'mator_smash_statistics#index', via: [:post]
-
   resources :merge_plugins_statistics
   match '/merge_plugins_statistics/index', to: 'merge_plugins_statistics#index', via: [:post]
 
-  # Blacklist Entries
+  # Server Operation
   resources :blacklist_entries
   match '/blacklist_entries/index', to: 'blacklist_entries#index', via: [:post]
+  resources :versions
   
   # welcome page
   resources 'welcome', only: [:index]

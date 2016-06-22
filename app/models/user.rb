@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   
   attr_accessor :login
 
-  has_one :mator_smash_statistic, :inverse_of => 'user'
-  has_one :merge_plugins_statistic, :inverse_of => 'user'
-  has_many :merge_reports, :foreign_key => 'submitted_by', :primary_key => 'username', :inverse_of => 'user'
-  has_many :smash_reports, :foreign_key => 'submitted_by', :primary_key => 'username', :inverse_of => 'user'
-  has_many :smash_settings, :foreign_key => 'submitted_by', :primary_key => 'username', :inverse_of => 'user'
+  has_one :mator_smash_statistic, :inverse_of => 'user', :dependent => :destroy
+  has_one :merge_plugins_statistic, :inverse_of => 'user', :dependent => :destroy
+  has_many :merge_reports, :inverse_of => 'user', :dependent => :destroy
+  has_many :smash_reports, :inverse_of => 'user', :dependent => :destroy
+  has_many :smash_settings, :inverse_of => 'user', :dependent => :destroy
 
   
   validates :username,

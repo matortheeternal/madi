@@ -5,7 +5,16 @@ class SmashReportsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.json { render :json => @smash_reports}
+      format.json {
+        render :json => @smash_reports.as_json({
+            :only => [:approved, :filename, :file_hash, :record_count, :smash_version, :created_at, :updated_at],
+            :include => {
+                :smash_setting => {
+                    :only => [:id, :name, :setting_hash]
+                }
+            }
+        })
+      }
     end
   end
 

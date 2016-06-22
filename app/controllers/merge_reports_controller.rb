@@ -10,15 +10,6 @@ class MergeReportsController < ApplicationController
   def show
   end
 
-  # GET /merge_reports/new
-  def new
-    @merge_report = MergeReport.new
-  end
-
-  # GET /merge_reports/1/edit
-  def edit
-  end
-
   # POST /merge_reports
   def create
     @merge_report = MergeReport.new(merge_report_params)

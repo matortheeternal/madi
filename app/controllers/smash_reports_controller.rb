@@ -10,15 +10,6 @@ class SmashReportsController < ApplicationController
   def show
   end
 
-  # GET /smash_reports/new
-  def new
-    @smash_report = SmashReport.new
-  end
-
-  # GET /smash_reports/1/edit
-  def edit
-  end
-
   # POST /smash_reports
   def create
     @smash_report = SmashReport.new(smash_report_params)

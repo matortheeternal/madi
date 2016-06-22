@@ -10,15 +10,6 @@ class SmashSettingsController < ApplicationController
   def show
   end
 
-  # GET /smash_settings/new
-  def new
-    @smash_setting = SmashSetting.new
-  end
-
-  # GET /smash_settings/1/edit
-  def edit
-  end
-
   # POST /smash_settings
   def create
     @smash_setting = SmashSetting.new(smash_setting_params)

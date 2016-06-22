@@ -10,15 +10,6 @@ class MatorSmashStatisticsController < ApplicationController
   def show
   end
 
-  # GET /mator_smash_statistics/new
-  def new
-    @mator_smash_statistic = MatorSmashStatistic.new
-  end
-
-  # GET /mator_smash_statistics/1/edit
-  def edit
-  end
-
   # POST /mator_smash_statistics
   def create
     @mator_smash_statistic = MatorSmashStatistic.new(mator_smash_statistic_params)

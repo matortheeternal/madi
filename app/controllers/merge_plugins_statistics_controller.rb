@@ -10,15 +10,6 @@ class MergePluginsStatisticsController < ApplicationController
   def show
   end
 
-  # GET /merge_plugins_statistics/new
-  def new
-    @merge_plugins_statistic = MergePluginsStatistic.new
-  end
-
-  # GET /merge_plugins_statistics/1/edit
-  def edit
-  end
-
   # POST /merge_plugins_statistics
   def create
     @merge_plugins_statistic = MergePluginsStatistic.new(merge_plugins_statistic_params)

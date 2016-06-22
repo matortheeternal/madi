@@ -1,5 +1,6 @@
 class MergeReportsController < ApplicationController
   before_action :set_merge_report, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /merge_reports
   def index

@@ -1,5 +1,6 @@
 class MatorSmashStatisticsController < ApplicationController
   before_action :set_mator_smash_statistic, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /mator_smash_statistics
   def index

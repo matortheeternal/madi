@@ -1,5 +1,6 @@
 class SmashSettingsController < ApplicationController
   before_action :set_smash_setting, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /smash_settings
   def index

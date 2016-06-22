@@ -1,5 +1,6 @@
 class MergePluginsStatisticsController < ApplicationController
   before_action :set_merge_plugins_statistic, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /merge_plugins_statistics
   def index

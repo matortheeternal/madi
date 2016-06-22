@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     self.role.to_sym == :admin
   end
 
+  def confirmed?
+    self.confirmed_at.present?
+  end
+
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)

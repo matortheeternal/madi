@@ -1,8 +1,9 @@
 class SmashSettingsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:index]
 
   # GET /smash_settings
   def index
+    @smash_settings = SmashSetting.accessible_by(current_ability).filter(filtering_params)
     respond_to do |format|
       format.html
       format.json {
@@ -56,5 +57,9 @@ class SmashSettingsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def smash_setting_params
       params.require(:smash_setting).permit(:submitted_by, :approved, :game, :name, :hash, :color, :records, :description, :tree)
+    end
+
+    def filtering_params
+      params[:filters].slice(:approved, :game, :search, :records, :created, :updated)
     end
 end

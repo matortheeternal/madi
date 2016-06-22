@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622202304) do
+ActiveRecord::Schema.define(version: 20160622204000) do
 
   create_table "blacklist_entries", force: :cascade do |t|
-    t.string   "ip",       limit: 32, null: false
-    t.string   "username", limit: 32
+    t.string   "ip",      limit: 32, null: false
+    t.integer  "user_id", limit: 4,  null: false
     t.datetime "created"
     t.datetime "expires"
   end
 
   add_index "blacklist_entries", ["ip"], name: "index_blacklist_entries_on_ip", unique: true, using: :btree
+  add_index "blacklist_entries", ["user_id"], name: "fk_rails_8a26e4eea8", using: :btree
 
   create_table "mator_smash_statistics", force: :cascade do |t|
     t.integer  "user_id",            limit: 4,             null: false
@@ -65,6 +66,8 @@ ActiveRecord::Schema.define(version: 20160622202304) do
     t.datetime "updated_at",                                null: false
   end
 
+  add_index "merge_reports", ["user_id"], name: "fk_rails_7439b24921", using: :btree
+
   create_table "smash_reports", force: :cascade do |t|
     t.integer  "user_id",          limit: 4,                   null: false
     t.boolean  "approved",                     default: false
@@ -80,6 +83,8 @@ ActiveRecord::Schema.define(version: 20160622202304) do
     t.datetime "updated_at",                                   null: false
   end
 
+  add_index "smash_reports", ["user_id"], name: "fk_rails_57aff555cf", using: :btree
+
   create_table "smash_settings", force: :cascade do |t|
     t.integer  "user_id",      limit: 4,                     null: false
     t.boolean  "approved",                   default: false
@@ -93,6 +98,8 @@ ActiveRecord::Schema.define(version: 20160622202304) do
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
   end
+
+  add_index "smash_settings", ["user_id"], name: "fk_rails_c34aa73ee0", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",               limit: 32,                   null: false
@@ -119,6 +126,10 @@ ActiveRecord::Schema.define(version: 20160622202304) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "blacklist_entries", "users"
   add_foreign_key "mator_smash_statistics", "users"
   add_foreign_key "merge_plugins_statistics", "users"
+  add_foreign_key "merge_reports", "users"
+  add_foreign_key "smash_reports", "users"
+  add_foreign_key "smash_settings", "users"
 end

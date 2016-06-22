@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310221605) do
+ActiveRecord::Schema.define(version: 20160622201940) do
 
   create_table "blacklist_entries", force: :cascade do |t|
     t.string   "ip",       limit: 32, null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160310221605) do
   add_index "merge_plugins_statistics", ["user_id"], name: "fk_rails_6bba2276ea", using: :btree
 
   create_table "merge_reports", force: :cascade do |t|
-    t.string   "submitted_by",  limit: 32,                  null: false
+    t.integer  "user_id",       limit: 4,                   null: false
     t.boolean  "approved",                  default: false
     t.string   "game",          limit: 32,                  null: false
     t.string   "filename",      limit: 64,                  null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20160310221605) do
   end
 
   create_table "smash_reports", force: :cascade do |t|
-    t.string   "submitted_by",     limit: 32,                  null: false
+    t.integer  "user_id",          limit: 4,                   null: false
     t.boolean  "approved",                     default: false
     t.integer  "smash_setting_id", limit: 4,                   null: false
     t.string   "game",             limit: 32,                  null: false
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20160310221605) do
   end
 
   create_table "smash_settings", force: :cascade do |t|
-    t.string   "submitted_by", limit: 32,                    null: false
+    t.integer  "user_id",      limit: 4,                     null: false
     t.boolean  "approved",                   default: false
     t.string   "game",         limit: 32,                    null: false
     t.string   "name",         limit: 64,                    null: false

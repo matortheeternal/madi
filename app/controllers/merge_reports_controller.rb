@@ -1,8 +1,9 @@
 class MergeReportsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:index]
 
   # GET /merge_reports
   def index
+    @merge_reports = MergeReport.accessible_by(current_ability).filter(filtering_params)
     respond_to do |format|
       format.html
       format.json {
@@ -51,5 +52,9 @@ class MergeReportsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def merge_report_params
       params.require(:merge_report).permit(:submitted_by, :approved, :game, :filename, :hash, :record_count, :rating, :merge_version, :notes, :approved_at)
+    end
+
+    def filtering_params
+      params[:filters].slice(:approved, :game, :search, :record_count, :rating, :version, :created, :updated)
     end
 end

@@ -1,5 +1,5 @@
 class MatorSmashStatistic < ActiveRecord::Base
-  include Sortable, Filterable
+  include Sortable, Filterable, ScopeHelpers
 
   # SCOPES
   range_scope :times_run, :patches_built, :settings_created, :plugins_smashed, :reports_submitted, :settings_submitted

@@ -1,5 +1,5 @@
 class SmashSetting < ActiveRecord::Base
-  include Sortable, Filterable
+  include Sortable, Filterable, ScopeHelpers
 
   # BOOLEAN FILTERS
   hash_scope :approved, alias: 'approved'

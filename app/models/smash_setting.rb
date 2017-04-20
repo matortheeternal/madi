@@ -2,15 +2,13 @@ class SmashSetting < ActiveRecord::Base
   include Sortable, Filterable
 
   # BOOLEAN FILTERS
-  scope :approved, -> (bool) { where(approved: true) if bool }
-  # GENERAL FILTERS
-  scope :game, -> (game) { where(game: game) }
-  scope :search, -> (search) { where("name LIKE ?", "%#{search}%") }
-  scope :records, -> (records) { where("records LIKE ?", "%#{records}%") }
-  scope :created, -> (range) { where(created_at: parseDate(range[:min])..parseDate(range[:max])) }
-  scope :updated, -> (range) { where(updated_at: parseDate(range[:min])..parseDate(range[:max])) }
+  hash_scope :approved, alias: 'approved'
+  value_scope :game
+  search_scope :name
+  search_scope :records, alias: "records"
+  date_scope :created, :updated
 
-
+  # ASSOCIATIONS
   belongs_to :user, :inverse_of => 'smash_settings'
   has_many :smash_reports, :inverse_of => 'smash_setting'
 

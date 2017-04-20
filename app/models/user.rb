@@ -1,20 +1,24 @@
 class User < ActiveRecord::Base
-  include Sortable, Filterable
+  include Sortable, Filterable, ScopeHelpers
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  
+  # Include devise modules
+  devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
+
+  # ATTRIBUTES
   attr_accessor :login
 
+  # SCOPES
+  search_scope :username
+  date_scope :joined, :last_seen
+
+  # ASSOCIATIONS
   has_one :mator_smash_statistic, :inverse_of => 'user', :dependent => :destroy
   has_one :merge_plugins_statistic, :inverse_of => 'user', :dependent => :destroy
   has_many :merge_reports, :inverse_of => 'user', :dependent => :destroy
   has_many :smash_reports, :inverse_of => 'user', :dependent => :destroy
   has_many :smash_settings, :inverse_of => 'user', :dependent => :destroy
 
-  
+  # VALIDATIONS
   validates :username,
   :presence => true,
   :uniqueness => {

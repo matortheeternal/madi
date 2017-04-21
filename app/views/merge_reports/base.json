@@ -1,0 +1,8 @@
+{
+  "except": ["approved", "game", "approved_at"],
+  "include": {
+    "user": {
+      "only": ["username"]
+    }
+  }
+}

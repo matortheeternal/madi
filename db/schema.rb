@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622234325) do
+ActiveRecord::Schema.define(version: 20170421051007) do
 
   create_table "blacklist_entries", force: :cascade do |t|
     t.string   "ip",      limit: 32, null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160622234325) do
     t.integer  "reports_submitted",  limit: 4, default: 0
     t.integer  "settings_submitted", limit: 4, default: 0
     t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "updated_at"
   end
 
   add_index "mator_smash_statistics", ["user_id"], name: "fk_rails_77299b4220", using: :btree
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20160622234325) do
     t.integer  "plugins_merged",    limit: 4, default: 0
     t.integer  "reports_submitted", limit: 4, default: 0
     t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "updated_at"
   end
 
   add_index "merge_plugins_statistics", ["user_id"], name: "fk_rails_6bba2276ea", using: :btree
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160622234325) do
     t.string   "notes",         limit: 255
     t.datetime "approved_at"
     t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "updated_at"
   end
 
   add_index "merge_reports", ["user_id"], name: "fk_rails_7439b24921", using: :btree
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160622234325) do
     t.string   "notes",            limit: 255
     t.datetime "approved_at"
     t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "updated_at"
   end
 
   add_index "smash_reports", ["user_id"], name: "fk_rails_57aff555cf", using: :btree
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20160622234325) do
     t.string   "description",  limit: 1024
     t.text     "tree",         limit: 65535
     t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "updated_at"
   end
 
   add_index "smash_settings", ["user_id"], name: "fk_rails_c34aa73ee0", using: :btree

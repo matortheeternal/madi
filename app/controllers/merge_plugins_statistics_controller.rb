@@ -40,4 +40,8 @@ class MergePluginsStatisticsController < ApplicationController
     def merge_plugins_statistic_params
       params.require(:merge_plugins_statistic).permit(:user_id, :times_run, :merges_built, :plugins_checked, :plugins_fixed, :plugins_merged, :reports_submitted)
     end
+
+    def filtering_params
+      (params[:filters] || {}).slice(:times_run, :merges_built, :plugins_checked, :plugins_fixed, :plugins_merged, :reports_submitted, :created, :updated)
+    end
 end

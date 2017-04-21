@@ -40,4 +40,8 @@ class MatorSmashStatisticsController < ApplicationController
     def mator_smash_statistic_params
       params.require(:mator_smash_statistic).permit(:user_id, :times_run, :patches_built, :settings_created, :plugins_smashed, :reports_submitted, :settings_submitted)
     end
+
+    def filtering_params
+      (params[:filters] || {}).slice(:times_run, :patches_built, :plugins_checked, :settings_created, :plugins_smashed, :reports_submitted, :settings_submitted, :created, :updated)
+    end
 end

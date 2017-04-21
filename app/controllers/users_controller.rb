@@ -60,4 +60,9 @@ class UsersController < ApplicationController
       authorize! :assign_roles, @user if params[:user][:role]
       params.require(:user).permit(:username, :email, :role)
     end
+
+    def filtering_params
+      (params[:filters] || {}).slice(:search, :joined, :last_seen)
+      # TODO :smash_settings, :smash_reports, :merge_reports
+    end
 end

@@ -1,56 +1,42 @@
 class MergeReportsController < ApplicationController
-  load_and_authorize_resource except: [:index]
+  before_action :set_merge_report, only: [:show, :update, :destroy]
 
-  # GET /merge_reports
+  # POST /merge_reports/index
   def index
-    @merge_reports = MergeReport.accessible_by(current_ability).filter(filtering_params)
-    respond_to do |format|
-      format.html
-      format.json { render :json => @merge_reports }
-    end
+    render json: IndexDecorator.new(MergeReport, [:user], self)
   end
 
   # GET /merge_reports/1
   def show
-    respond_to do |format|
-      format.html
-      format.json { render :json => @merge_report}
-    end
+    render json: @merge_report
   end
 
   # POST /merge_reports
   def create
-    @merge_report = MergeReport.new(merge_report_params)
-
-    if @merge_report.save
-      redirect_to @merge_report, notice: 'Merge report was successfully created.'
-    else
-      render :new
-    end
+    create_record(MergeReport, merge_report_params)
   end
 
   # PATCH/PUT /merge_reports/1
   def update
-    if @merge_report.update(merge_report_params)
-      redirect_to @merge_report, notice: 'Merge report was successfully updated.'
-    else
-      render :edit
-    end
+    update_record(@merge_report, merge_report_params)
   end
 
   # DELETE /merge_reports/1
   def destroy
-    @merge_report.destroy
-    redirect_to merge_reports_url, notice: 'Merge report was successfully destroyed.'
+    destroy_record(@merge_report)
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def merge_report_params
+    params.require(:merge_report).permit(:submitted_by, :approved, :game, :filename, :hash, :record_count, :rating, :merge_version, :notes, :approved_at)
+  end
+
+  def filtering_params
+    (params[:filters] || {}).slice(:approved, :game, :search, :record_count, :rating, :version, :created, :updated)
   end
 
   private
-    # Only allow a trusted parameter "white list" through.
-    def merge_report_params
-      params.require(:merge_report).permit(:submitted_by, :approved, :game, :filename, :hash, :record_count, :rating, :merge_version, :notes, :approved_at)
-    end
-
-    def filtering_params
-      (params[:filters] || {}).slice(:approved, :game, :search, :record_count, :rating, :version, :created, :updated)
+    def set_merge_report
+      @merge_report = MergeReport.find(params[:id])
     end
 end

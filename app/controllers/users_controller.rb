@@ -1,68 +1,30 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
+  before_action :set_user, only: [:show]
 
   # GET /users
   def index
-    respond_to do |format|
-      format.html
-      format.json { render :json => @users}
-    end
+    render json: IndexDecorator.new(User, [], self)
   end
 
   # GET /users/1
   def show
-    respond_to do |format|
-      format.html
-      format.json { render :json => @user}
-    end
+    authorize! :read, @user
+    respond_with_json(@user, nil, :user)
   end
 
-  # POST /users
-  def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+  # Only allow a trusted parameter "white list" through.
+  def user_params
+    authorize! :assign_roles, @user if params[:user][:role]
+    params.require(:user).permit(:username, :email, :role)
   end
 
-  # PATCH/PUT /users/1
-  def update
-    respond_to do |format|
-      if @user.update(game_params)
-        format.html { redirect_to @user, notice: 'Game was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /users/1
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+  def filtering_params
+    (params[:filters] || {}).slice(:search, :joined, :last_seen)
+    # TODO :smash_settings, :smash_reports, :merge_reports
   end
 
   private
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      authorize! :assign_roles, @user if params[:user][:role]
-      params.require(:user).permit(:username, :email, :role)
-    end
-
-    def filtering_params
-      (params[:filters] || {}).slice(:search, :joined, :last_seen)
-      # TODO :smash_settings, :smash_reports, :merge_reports
+    def set_user
+      @user = User.find(params[:id])
     end
 end

@@ -1,7 +1,7 @@
 // angular apps
-//= link madi.js
+// link madi.js
 // themes
 //= link main/Ruby.scss
 //= link main/Jet.scss
 // VENDOR ASSETS
-//= link madi-vendor.js
+// link madi-vendor.js

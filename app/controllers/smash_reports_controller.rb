@@ -8,6 +8,7 @@ class SmashReportsController < ApplicationController
 
   # GET /smash_reports/1
   def show
+    authorize! :read, @smash_report
     render json: @smash_report
   end
 

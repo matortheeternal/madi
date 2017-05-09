@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   # GET /users/1
   def show
     authorize! :read, @user
-    respond_with_json(@user, nil, :user)
+    render json: @user
   end
 
   # Only allow a trusted parameter "white list" through.

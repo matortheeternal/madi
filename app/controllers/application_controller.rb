@@ -12,15 +12,17 @@ class ApplicationController < ActionController::Base
   end
 
   def create_record(klass, params)
-    @record = klass.new(params)
-    if @record.save
+    record = klass.new(params)
+    authorize! :create, record
+    if record.save
       render json: {status: :ok}
     else
-      render json: @record.errors, status: :unprocessable_entity
+      render json: record.errors, status: :unprocessable_entity
     end
   end
 
   def update_record(record, params)
+    authorize! :update, record
     if record.update(params)
       render json: {status: :ok}
     else
@@ -29,6 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def destroy_record(record)
+    authorize! :destroy, record
     if record.destroy
       render json: {status: :ok}
     else

@@ -8,6 +8,7 @@ class MergePluginsStatisticsController < ApplicationController
 
   # GET /merge_plugins_statistics/1
   def show
+    authorize! :read, @merge_plugins_statistic
     render json: @merge_plugins_statistic
   end
 

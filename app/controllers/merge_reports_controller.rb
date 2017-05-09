@@ -8,6 +8,7 @@ class MergeReportsController < ApplicationController
 
   # GET /merge_reports/1
   def show
+    authorize! :read, @merge_report
     render json: @merge_report
   end
 

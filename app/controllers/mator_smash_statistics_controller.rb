@@ -8,6 +8,7 @@ class MatorSmashStatisticsController < ApplicationController
 
   # GET /mator_smash_statistics/1
   def show
+    authorize! :read, @mator_smash_statistic
     render json: @mator_smash_statistic
   end
 

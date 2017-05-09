@@ -8,6 +8,7 @@ class SmashSettingsController < ApplicationController
 
   # GET /smash_settings/1
   def show
+    authorize! :read, @smash_setting
     render json: @smash_setting
   end
 

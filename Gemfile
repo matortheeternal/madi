@@ -30,8 +30,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # use nokogiri for parsing html
 gem 'nokogiri'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Use bcrypt
+gem 'bcrypt-ruby', '3.0.0', :require => 'bcrypt'
 
 # Use will_paginate for pagination
 gem 'will_paginate'

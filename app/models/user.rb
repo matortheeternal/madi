@@ -53,23 +53,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-
-  def as_json(options={})
-    if JsonHelpers.json_options_empty(options)
-      default_options = {
-          :except => [:id],
-          :include => {
-              :mator_smash_statistic => {
-                  :except => [:id, :user_id]
-              },
-              :merge_plugins_statistic => {
-                  :except => [:id, :user_id]
-              }
-          }
-      }
-      super(options.merge(default_options))
-    else
-      super(options)
-    end
-  end
 end
